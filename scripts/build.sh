@@ -2,10 +2,5 @@
 
 set -e
 
-if [ "$1" = "dirty" ]; then
-  echo "Dirty mode: not removing previous build files."
-else
-  rm -rf dist
-fi
-
-babel src --out-dir ./dist/src
+rm -rf dist/*
+./node_modules/.bin/babel --no-babelrc -d ./dist ./src
